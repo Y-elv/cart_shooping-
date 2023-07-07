@@ -4,8 +4,8 @@ import express from "express"
 const router=express.Router()
 
 router.post("/addToCart", addToCart)
-router.delete("/deleteCart", deleteCart)
+router.delete("/deleteCart/:id", deleteCart)
 router.get("/viewCart", viewCart)
-router.put("/update",updateCart)
+router.put("/update/:id",updateCart)
 
 export default router

@@ -29,7 +29,8 @@ const addToCart = async (req:any, res:any):Promise<any> =>{
 const deleteCart = async (req:any, res:any):Promise<any> =>{
         try{
             const data=req.body
-            const found=await cart.findOne({productName:data.productName})
+            const cartId=req.params.id
+            const found=await cart.findOne({_id:cartId})
             if(!found){
                 res.status(409).json({
                     message:"products removed from your cart"
@@ -59,7 +60,8 @@ const deleteCart = async (req:any, res:any):Promise<any> =>{
     const updateCart = async (req: any, res: any): Promise<any> => {
         try {
           const data = req.body;
-          const found = await cart.findOne({ productName: data.productName });
+          const cartId=req.params.id
+          const found = await cart.findOne({ _id: cartId});
           if (!found) {
             res.status(409).json({
               message: "This product is not available",
