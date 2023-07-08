@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import productRoute from '../Routes/productRoutes';
 import cartRoute from '../Routes/cartRoutes'
-
+import photoRoutes from '../Routes/photoRoutes'
 dotenv.config();
 
 //connect to mongo db
@@ -33,7 +33,8 @@ const port = 5500;
 app.use("/product",productRoute)
 //create cart
 app.use("/cart",cartRoute)
-
+//photo upload
+app.use("/upload",photoRoutes)
 
 app.get('/', (req: Request, res: Response) => {
   res.send('welcome to cart Shopping');
